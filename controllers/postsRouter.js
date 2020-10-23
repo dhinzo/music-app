@@ -13,23 +13,42 @@ postsRouter.get('/new', (req, res) => {
 
 // CREATE route
 
-postsRouter.post('/new', (req, res) => {
-console.log('create route running')
-res.send('hello CREATE route')
+postsRouter.post('/', (req, res) => {
+    console.log('create route running')
+        Post.create(req.body, (err, createdPost) => {
+        res.redirect('/posts')
+    })
 })
 
 // INDEX route
 
 postsRouter.get('/', (req, res) => {
     console.log('index route running')
-    res.render('./posts/index.ejs')
+    Post.find({}, (err, allPosts) => {
+        console.log()
+        if(err) {
+            console.log(err)
+        } else {
+        res.render('./posts/index.ejs', {
+        posts: allPosts
+            })
+        }
+    })
 })
 
 // SHOW route
 
 postsRouter.get('/:id', (req, res) => {
     console.log('show route running')
-    res.send('Show me the route')
+    Post.findById(req.params.id, (err, foundPost) => {
+        if(err) {
+            console.log(err)
+        } else {
+            res.render('./posts/show.ejs', {
+                post: foundPost
+            })
+        }
+    })
 })
 
 

@@ -5,8 +5,10 @@ const postSchema = new mongoose.Schema({
     postPhoto: String,
     compTitle: { type: String, required: true },
     compDescription: { type: String, required: true },
+    tags: [String],
     songFile: { type: String },
-})
+    likes: { type: Number, default: 0 }
+}, {timestamp: true})
 
 const Post = mongoose.model('Post', postSchema)
 

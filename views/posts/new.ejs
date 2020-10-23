@@ -4,26 +4,33 @@
 <div class="container form">
     <div class="new-post-form"></div>   
     <form action="/posts" method="POST">
-    <div class="form-group">
-        <label for="artist-name">Artist Name</label>
-        <input type="text" name="artistName" class="form-control" id="artistName" placeholder="Artist Name">
-    </div>
-    <div class="form-group">
-        <label for="song-photo">Post Photo</label>
-        <input type="text" name="postPhoto" class="form-control" id="postPhoto" placeholder="Link to Image for this Post">
-    </div>
-    <div class="form-group">
-        <label for="song-title">Song Title</label>
-        <input type="text" name="compTitle" class="form-control" id="compTitle" placeholder="Composition Title">
-    </div>
-    <div class="form-group">
-        <label for="composition-description">Composition Description</label>
-        <textarea class="form-control" id="compDescription" rows="3" placeholder="Composition Description"></textarea>
-      </div>
-      <div class="form-group">
+        <div class="form-group">
+            <label for="artist-name">Artist Name</label>
+            <input type="text" name="artistName" class="form-control" id="artistName" placeholder="Artist Name">
+        </div>
+        <div class="form-group">
+            <label for="song-photo">Post Photo</label>
+            <input type="text" name="postPhoto" class="form-control" id="postPhoto" placeholder="Link to Image for this Post">
+        </div>
+        <legend>Music Information</legend>
+            <fieldset>
+            <div class="form-group">
+                <label for="song-title">Song Title</label>
+                <input type="text" name="compTitle" class="form-control" id="compTitle" placeholder="Composition Title">
+            </div>
+            <div class="form-group">
+                <label for="composition-description">Composition Description</label>
+                <textarea class="form-control" name="compDescription" id="compDescription" rows="3" placeholder="Composition Description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="composition-description">Tags</label>
+                <input type="text" class="form-control" name="tags" id="tags" placeholder="add tags with '#' separated by commas">
+            </div>
+            </fieldset>
+      <!-- <div class="form-group">
         <label for="file-upload">Upload File</label>
         <input type="file" class="form-control-file" id="songFile">
-      </div>
+      </div> -->
       <button type="submit" class="btn btn-primary">Submit</button>
       <button class="btn btn-primary">Back to Muse Feed</button>
     </div>
