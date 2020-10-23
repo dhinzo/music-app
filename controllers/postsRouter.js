@@ -51,6 +51,37 @@ postsRouter.get('/:id', (req, res) => {
     })
 })
 
+// DELETE route
+
+postsRouter.delete('/:id', (req, res) => {
+    Post.findByIdAndRemove(req.params.id, (err, data) => {
+        if(err){
+            console.log(err)
+        } else {
+            console.log('deleted', data)
+            res.redirect('/posts')
+        }
+    })
+})
+
+
+// EDIT route
+
+postsRouter.get('/:id/edit', (req, res) => {
+    Post.findById(req.params.id).then(editPost => {
+        res.render('./posts/edit.ejs', {
+            edit: editPost
+        })
+    }).catch(err => console.log(err))
+})
+
+
+postsRouter.put('/:id', (req, res) => {
+    Post.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPost) => {
+        res.redirect(`/posts/${updatedPost.id}`)
+    })
+})
+
 
 
 module.exports = postsRouter

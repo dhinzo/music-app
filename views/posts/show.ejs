@@ -4,7 +4,7 @@
 </div>
     <div class="container">
         <div class="row">
-                <div class="card index-card " style="width: 18rem;">  
+                <div class="card index-card" style="width: 18rem;">  
                     <img class="card-img-top cover-photo" src="<%= post.postPhoto %>" alt="artist-photo">
                     <div class="card-body">
                         <h5 class="card-title"><%= post.artistName %></h5>
@@ -20,6 +20,12 @@
                     <div class="card-body">
                         <h6>Likes</h6>
                         <p><%= post.likes %></p>
+                    </div>
+                    <div class="card-body">
+                        <form action="/posts/<%= post.id %>?_method=DELETE" method="POST"><button type="submit" class="btn btn-danger" value="DELETE">Delete Post</button>
+                        </form>
+                        <a href="/posts/<%= post.id %>/edit" type="button" class="btn btn-outline-secondary">Edit Post</a>
+                        <a type="button" href="/posts" class="btn btn-outline-secondary">Back to Feed</a>
                     </div>
                 </div>
         </div>  

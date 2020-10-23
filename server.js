@@ -5,11 +5,17 @@ const app = express()
 const mongoose = require('mongoose')
 const Post = require('./models/posts.js')
 // const PORT = 3000
+const methodOverride = require('method-override')
+
 // env variables
 const PORT = process.env.PORT
 const mongodbURI = process.env.MONGODBURI
 
+// Middleware
 app.use(express.urlencoded({ extended: true }))
+
+// sends DELETE requests
+app.use(methodOverride('_method'))
 
 // STATIC
 app.use(express.static('public'))
