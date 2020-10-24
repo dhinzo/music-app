@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 const Post = require('./models/posts.js')
 // const PORT = 3000
 const methodOverride = require('method-override')
+const session = require('express-session')
+
 
 // env variables
 const PORT = process.env.PORT
@@ -19,6 +21,15 @@ app.use(methodOverride('_method'))
 
 // STATIC
 app.use(express.static('public'))
+
+// SESSIONS
+app.use(
+  session({
+    secret: process.env.SECRET, //a random string do not copy this value or your stuff will get hacked
+    resave: false, 
+    saveUninitialized: false 
+  })
+)
 
 // Mongoose Connection Code
 mongoose.connect(mongodbURI, {
@@ -43,9 +54,21 @@ mongoose.connect(mongodbURI, {
 // CONTROLLERS
 
 // Posts Controller
-const postsController = require('./controllers/postsRouter.js')
+const postsController = require('./controllers/postsController.js')
 app.use('/posts', postsController) 
 
+
+// Users Controller
+const usersController = require('./controllers/usersController.js')
+app.use('/users', usersController)
+
+// Sessions Controller
+const sessionsController = require('./controllers/sessionsController.js')
+app.use('/sessions', sessionsController)
+
+app.get('/', (req, res) => {
+  res.render('home.ejs', { currentUser: req.session.currentUser })
+})
 
 // LISTENER
 app.listen(PORT, () => {

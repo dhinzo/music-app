@@ -1,19 +1,27 @@
 const express = require('express')
-const postsRouter = express.Router()
+const postsController = express.Router()
 const Post = require('../models/posts.js')
 
+
+const isAuthenticated = (req, res, next) => {
+    if (req.session.currentUser) {
+      return next()
+    } else {
+      res.redirect('/sessions/new')
+    }
+  }
 // **** ROUTES ****
 
 // NEW route
 
-postsRouter.get('/new', (req, res) => {
+postsController.get('/new', (req, res) => {
     console.log('new route running')
-    res.render('./posts/new.ejs')
+    res.render('./posts/new.ejs', { currentUser: req.session.currentUser })
 })
 
 // CREATE route
 
-postsRouter.post('/', (req, res) => {
+postsController.post('/', (req, res) => {
     console.log('create route running')
         Post.create(req.body, (err, createdPost) => {
         res.redirect('/posts')
@@ -22,7 +30,7 @@ postsRouter.post('/', (req, res) => {
 
 // INDEX route
 
-postsRouter.get('/', (req, res) => {
+postsController.get('/', (req, res) => {
     console.log('index route running')
     Post.find({}, (err, allPosts) => {
         console.log()
@@ -30,7 +38,8 @@ postsRouter.get('/', (req, res) => {
             console.log(err)
         } else {
         res.render('./posts/index.ejs', {
-        posts: allPosts
+        posts: allPosts,
+        currentUser: req.session.currentUser
             })
         }
     })
@@ -38,14 +47,15 @@ postsRouter.get('/', (req, res) => {
 
 // SHOW route
 
-postsRouter.get('/:id', (req, res) => {
+postsController.get('/:id', isAuthenticated, (req, res) => {
     console.log('show route running')
     Post.findById(req.params.id, (err, foundPost) => {
         if(err) {
             console.log(err)
         } else {
             res.render('./posts/show.ejs', {
-                post: foundPost
+                post: foundPost,
+                currentUser: req.session.currentUser
             })
         }
     })
@@ -53,7 +63,7 @@ postsRouter.get('/:id', (req, res) => {
 
 // DELETE route
 
-postsRouter.delete('/:id', (req, res) => {
+postsController.delete('/:id', isAuthenticated, (req, res) => {
     Post.findByIdAndRemove(req.params.id, (err, data) => {
         if(err){
             console.log(err)
@@ -67,16 +77,18 @@ postsRouter.delete('/:id', (req, res) => {
 
 // EDIT route
 
-postsRouter.get('/:id/edit', (req, res) => {
+postsController.get('/:id/edit', (req, res) => {
     Post.findById(req.params.id).then(editPost => {
         res.render('./posts/edit.ejs', {
-            edit: editPost
+            edit: editPost,
+            currentUser: req.session.currentUser
         })
     }).catch(err => console.log(err))
 })
 
+// UPDATE route
 
-postsRouter.put('/:id', (req, res) => {
+postsController.put('/:id', isAuthenticated, (req, res) => {
     Post.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPost) => {
         res.redirect(`/posts/${updatedPost.id}`)
     })
@@ -84,4 +96,4 @@ postsRouter.put('/:id', (req, res) => {
 
 
 
-module.exports = postsRouter
+module.exports = postsController
