@@ -1,6 +1,9 @@
 {
   "name": "music-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.10.1"
+  },
   "description": "an app to connect music creators with music performers",
   "main": "server.js",
   "scripts": {
