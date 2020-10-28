@@ -1,5 +1,5 @@
 <%- include('../partials/header.ejs') %>
-<%- include('../partials/userNav.ejs') %>
+<%- include('../partials/userNav.ejs', {currentUser: currentUser}) %>  
 <div class="d-flex justify-content-center title"><h1>Muse Feed</h1>
 </div>
     <div class="container">
@@ -7,22 +7,22 @@
             <% for (let i = 0; i < posts.length; i++) { %>
                 <div class="card index-card " style="width: 20rem;">
                     <a href="/posts/<%= posts[i].id %>"> 
-                    <img class="card-img-top cover-photo" src="<%= posts[i].postPhoto %>" alt="artist-photo"></a> 
+                    <img class="card-img-top cover-photo" src="/random-photo/<%= posts[i].id %>" alt="artist-photo"></a> 
                     <div class="card-body">
                         <h5 class="card-title"><%= posts[i].artistName %></h5>
                         <h6 class="card-subtitle">"<%= posts[i].compTitle %>"</h6>
-                        <p class="card-text"><%= posts[i].compDescription %></p>
+                        <!-- <p class="card-text"><%= posts[i].compDescription %></p> -->
                         <h6>Listen:</h6>
-                        <p><em>Play music once file is uploaded</em></p>
+                        <p><a href="<%= posts[i].website %>">My Website</a></p>
                     </div>
                     <div class="card-body">
                         <h6>Tags:</h6>
-                        <p><%= posts[i].tags %></p>
+                        <p><%= posts[i].tags %> </p>
                     </div>
-                    <div class="card-body">
+                    <!-- <div class="card-body">
                         <h6>Likes</h6>
-                        <p><%= posts[i].likes %></p>
-                    </div>
+                        <p><a type="button" class="btn btn-outline-secondary" href="">Likes</a><div><%= posts[i].likes %></div></p>
+                    </div> -->
                 </div>
            <% } %>
         </div>    

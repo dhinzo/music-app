@@ -9,6 +9,20 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 
 
+
+//Set Store Engine
+// const storage = multer.diskStorage({
+//   destination: './public/uploads/',
+//   filename: function(req, file, cb){
+//     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+//   }
+// })
+
+
+
+
+
+
 // env variables
 const PORT = process.env.PORT
 const mongodbURI = process.env.MONGODBURI
@@ -41,6 +55,19 @@ mongoose.connect(mongodbURI, {
     console.log("the connection with mongod is established")
   }
 )
+
+app.get('/random-photo/:id', (req, res) => {
+  Post.findById(req.params.id, (err, foundOne) => {
+    if (err) {
+      console.log(err)
+      res.send(err)
+    } else {
+      console.log(foundOne)
+      res.send(foundOne.postPhoto)
+    }
+  })
+})
+
 
 // Post.create({
 //   artistName: 'Baethoven',

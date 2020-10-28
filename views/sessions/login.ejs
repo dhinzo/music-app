@@ -2,10 +2,11 @@
 <%- include('../partials/nav.ejs') %>
 
         <h1>User Login page</h1>
+        <div class="container">
         <form action="/sessions" method="POST">
             Artist Name: <input type="text" name="artistName" /><br/>
             Password: <input type="password" name="password" /><br/>
             <input type="submit" name="" value="User sign in"/>
         </form>
-
+    </div>
 <%- include('../partials/footer.ejs') %>

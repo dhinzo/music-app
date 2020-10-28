@@ -3,14 +3,20 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-    <li>Welcome <%= currentUser.artistName %></li>
-      <li>
-        <form action="/sessions?_method=DELETE" method="POST">
-          <input type="submit" value="Log Out" class="btn-small red" />
-        </form>
-<li class="nav-item active">
-    <a class="nav-link" href="/posts">Muse Feed<span class="sr-only">(current)</span></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/posts/new">New Post</a>
-  </li>
+      <ul class="navbar-nav">
+        <li id="welcome-user">Welcome <%= currentUser.artistName %></li>
+          <li class="nav-item active">
+          <a class="nav-link" href="/posts">Muse Feed<span class="sr-only">(current)</span></a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/posts/new">New Post</a>
+          </li>
+          <li>
+            <div class="d-flex justify-content-end">
+            <form action="/sessions?_method=DELETE" method="POST">
+              <input type="submit" value="Log Out" class="btn btn-danger" />
+            </form>
+          </div>
+        </ul>
+  </div>
+</nav>

@@ -4,14 +4,18 @@
 </div>
 <div class="container form">
     <div class="new-post-form"></div>   
-    <form action="/posts" method="POST">
+    <form action="/posts" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="artist-name">Artist Name</label>
-            <input type="text" name="artistName" class="form-control" id="artistName" placeholder="Artist Name">
+            <input type="text" name="artistName" class="form-control-plaintext" id="artistName" value="<%= currentUser.artistName %>">
         </div>
         <div class="form-group">
             <label for="song-photo">Post Photo</label>
-            <input type="text" name="postPhoto" class="form-control" id="postPhoto" placeholder="Link to Image for this Post">
+            <input type="file" name="postPhoto" class="form-control-file" id="postPhoto">
+        </div>
+        <div class="form-group">
+            <label for="website">Website</label>
+            <input type="text" name="website" class="form-control" id="website">
         </div>
         <legend>Music Information</legend>
             <fieldset>
@@ -28,10 +32,10 @@
                 <input type="text" class="form-control" name="tags" id="tags" placeholder="add tags with '#' separated by commas">
             </div>
             </fieldset>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="file-upload">Upload File</label>
         <input type="file" class="form-control-file" id="songFile">
-      </div>
+      </div> -->
       <button type="submit" class="btn btn-primary">Submit</button>
       <button class="btn btn-primary">Back to Muse Feed</button>
     </div>

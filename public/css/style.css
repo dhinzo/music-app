@@ -1,0 +1,25 @@
+ #welcome-user {
+    margin-right: 2rem;
+}
+
+.card {
+    margin-left: 1rem;
+}
+
+.new-form{
+    margin-top: 5rem;
+}
+
+
+.card-img-top {
+    object-fit: cover;
+    max-height: 15rem;
+}
+
+
+
+/* .cover-photo {
+    max-height: 10rem;
+    object-fit: cover;
+    margin: 0 1rem;
+}   */

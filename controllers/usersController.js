@@ -10,8 +10,10 @@ usersController.get('/new', (req, res) => {
 usersController.post('/', (req, res) => {
     //overwrite the user password with the hashed password, then pass that in to our db
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
+
     User.create(req.body, (err, createdUser) => {
         if(err) {
+            console.log('User Already Exists')
             console.log(err)
         } else {
             console.log('user created! welcome, ', createdUser)

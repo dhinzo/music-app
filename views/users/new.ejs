@@ -2,11 +2,12 @@
 <%- include('../partials/nav.ejs') %>
 
 <h1>New User page</h1>
+<div class="container">
         <form action="/users" method="POST">
             Artist Name: <input type="text" name="artistName" />
             Given Name (if different): <input type="text" name="realName" />
             Password: <input type="password" name="password" />
             <input type="submit" name="" value="Create User"/>
         </form>
-
+    </div>
 <%- include('../partials/footer.ejs') %>
