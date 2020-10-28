@@ -2,25 +2,25 @@
 <%- include('../partials/userNav.ejs') %>
 <div class="d-flex justify-content-center title new-form"><h1>Edit This Post</h1>
 </div>
-<div class="container form">
-    <div class="new-post-form"></div>   
-    <form action="/posts/<%= edit.id %>?_method=PUT" method="POST">
-        <div class="form-group">
+    <div class="container form">
+        <div class="new-post-form"></div>   
+            <form action="/posts/<%= edit.id %>?_method=PUT" method="POST">
+            <div class="form-group">
             <label for="artist-name">Artist Name</label>
             <input type="text" name="artistName" class="form-control" id="artistName" value="<%= edit.artistName %>" readonly>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="song-photo">Post Photo</label>
-            <input type="text" name="postPhoto" class="form-control" id="postPhoto" value="<%= edit.postPhoto %>">
-        </div>
+            <input type="file" name="postPhoto" class="form-control-file" id="postPhoto">
+        </div> -->
         <div class="form-group">
             <label for="website">Website</label>
-            <input type="text" name="website" class="form-control" id="website">
+            <input type="text" name="website" class="form-control" id="website" value="<%= edit.website %>">
         </div>
         <legend>Music Information</legend>
             <fieldset>
             <div class="form-group">
-                <label for="song-title">Song Title</label>
+                <label for="song-title">Composition Title</label>
                 <input type="text" name="compTitle" class="form-control" id="compTitle" placeholder="Composition Title" value="<%= edit.compTitle %>">
             </div>
             <div class="form-group">
@@ -32,13 +32,15 @@
                 <input type="text" class="form-control" name="tags" id="tags" value="<%= edit.tags %>">
             </div>
             </fieldset>
-      <div class="form-group">
+            <!-- code for upload file button -->
+      <!-- <div class="form-group">
         <label for="file-upload">Upload File</label>
         <input type="file" class="form-control-file" id="songFile">
-      </div>
+      </div> -->
+
       <button type="submit" class="btn btn-primary">Submit</button>
       <a type="button" href="/posts/<%= edit.id %>" class="btn btn-primary">Back to Post</a>
-    </div>
-</form>
+        </div>
+    </form>
 </div>
 <%- include('../partials/footer.ejs') %>

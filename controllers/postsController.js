@@ -172,7 +172,11 @@ postsController.get('/:id/edit', (req, res) => {
 
 postsController.put('/:id', isAuthenticated, (req, res) => {
     Post.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPost) => {
+        if(err) {
+            res.send(err)
+        } else {
         res.redirect(`/posts/${updatedPost.id}`)
+        }
     })
 })
 
