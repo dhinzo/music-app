@@ -1,20 +1,21 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/userNav.ejs') %>
-<div class="d-flex justify-content-center title"><h1>Post Page</h1>
+<div class="d-flex justify-content-center title pt-5 pb-5"><h1>Post Page</h1>
 </div>
     <div class="container">
-        <div class="row">
-                <div class="card index-card" style="width: 18rem;">  
+        <div class="row d-flex justify-content-center">
+                <div class="card show-card" style="width: 20rem;">  
                     <img class="card-img-top cover-photo" src="/random-photo/<%=post.id %>" alt="artist-photo">
-                    <div class="card-body">
+                    <div class="card-body" style="width: 20rem;">
                         <h5 class="card-title"><%= post.artistName %></h5>
-                        <h6 class="card-subtitle">"<%= post.compTitle %>"</h6>
-                        <p class="card-text"><%= post.compDescription %></p>
-                        <h6>Listen:</h6>
-                        <p><a href="<%= post.website %>">Website</a></p>
-                    </div>
-                    <div class="card-body">
-                        <h6>Tags:</h6>
+                        <h6 class="card-subtitle mb-4">"<%= post.compTitle %>"</h6>
+                        <h6 class="font-italic mt-3 mb-3">About this piece:</h6>
+                        <p class="card-text mb-5 text-justify"><%= post.compDescription %></p>
+                        <h6>Portfolio</h6>
+                        <p><a type="button" class="btn btn-outline-secondary portfolio" target="_blank" href="<%= post.website %>">Here</a></p>
+                    <!-- </div>
+                    <div class="card-body"> -->
+                        <h6 class="pt-4">Tags:</h6>
                         <p><%= post.tags %></p>
                     </div>
                     <!-- <div class="card-body">
@@ -22,11 +23,11 @@
                         <p><%= post.likes %></p>
                     </div> -->
                     <% if(currentUser.artistName === post.artistName) { %>
-                    <div class="card-body">
+                    <div class="card-body pt-0">
                         <form action="/posts/<%= post.id %>?_method=DELETE" method="POST"><button type="submit" class="btn btn-danger" value="DELETE">Delete Post</button>
                         </form>
-                        <a href="/posts/<%= post.id %>/edit" type="button" class="btn btn-outline-secondary">Edit Post</a>
-                        <a type="button" href="/posts" class="btn btn-outline-secondary">Back to Feed</a>
+                        <a href="/posts/<%= post.id %>/edit" type="button" class="btn btn-outline-secondary mt-2">Edit Post</a>
+                        <a type="button" href="/posts" class="btn btn-outline-secondary mt-2">Back to Feed</a>
                   <% } else { %>
                         <div class="card-body">
                         <a type="button" href="/posts" class="btn btn-outline-secondary">Back to Feed</a>  

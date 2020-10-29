@@ -13,8 +13,8 @@ usersController.post('/', (req, res) => {
 
     User.create(req.body, (err, createdUser) => {
         if(err) {
-            console.log('User Already Exists')
             console.log(err)
+            res.redirect('/users/new')
         } else {
             console.log('user created! welcome, ', createdUser)
             res.redirect('/posts')

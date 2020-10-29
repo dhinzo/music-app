@@ -1,12 +1,17 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/nav.ejs') %>
-
-        <h1>User Login page</h1>
+<div class="d-flex justify-content-center mt-5 mb-5">
+        <h1>Composr Login page</h1>
+    </div>
         <div class="container">
-        <form action="/sessions" method="POST">
-            Artist Name: <input type="text" name="artistName" /><br/>
-            Password: <input type="password" name="password" /><br/>
-            <input type="submit" name="" value="User sign in"/>
+        <form class="d-flex justify-content-center" action="/sessions" method="POST">
+            <div class="form-group d-flex flex-column" style="width: 18rem;">
+            <label for="artist-name">Artist Name:</label>
+            <input type="text" class="form-control" name="artistName" />
+            <label class="mt-3" for="password">Password:</label>
+             <input type="password" class="form-control mb-3" name="password" />
+            <input type="submit" class="login-btn btn btn-outline-success" value="Login" style="width: 6rem;"/>
+        </div>
         </form>
     </div>
 <%- include('../partials/footer.ejs') %>

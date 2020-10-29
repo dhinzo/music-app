@@ -1,5 +1,41 @@
 <%- include('./partials/header.ejs') %>
 <%- include('./partials/nav.ejs') %>
-<h1>Hello! Welcome to Composr!</h1>
+<div class="d-flex justify-content-center title home-title mt-5 mb-5">
+<h1 id="title-pg-header">Composr</h1>
+</div>
+<div class="d-flex justify-content-center title home-subtitle">
+<h2>Be Seen | Be Heard | B-Sharp</h2>
+</div>
+<div class="container">
+    <section class="white-section mt-5" id="features">
+        <div class="row">
+          <div class="feature-box col-lg-4 text-center">
+            <i class="fas fa-user-plus fa-7x"></i>
+            <h3 class="feature-title">Create Profile</h3>
+            <p>Upload a photo, write about your music, link to your portfolio.</p>
+          </div>
+          <div class="feature-box col-lg-4 text-center">
+            <i class="fas fa-headphones fa-7x"></i>
+            <h3 class="elite-clientele">Listen</h3>
+            <p>Browse the music of composers around the world and get your music out there, too.</p>
+          </div>
+          <div class="feature-box col-lg-4 text-center">
+            <i class="far fa-handshake fa-7x"></i>
+            <h3 class="feature-title">Connect</h3>
+            <p>Get to know people who like your music and meet your new faves.</p>
+          </div>
+        </div>
+        </div>
+      </section>
+    <div class="jumbotron mt-2">
+        <h1 class="display-4 text-center jumbo-header">Join the Composr community</h1>
+        <p class="lead text-center jumbo">Sometimes all you need to do is put yourself out there. Composr makes it easy for living composers of classical music to connect with new audiences and collaborators. It's as simple as creating an account, and a post.</p>
+        <hr class="my-4">
+        <p class="lead text-center">Create an account and start sharing your music with a new audience today.</p>
+        <p class="lead text-center">
+            <a type="button" class="btn btn-primary btn-lg mt-4" href="/users/new">Sign Up</a>
+        </p>
+      </div>
 
+</div>
 <%- include('./partials/footer.ejs') %>

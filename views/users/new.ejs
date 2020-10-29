@@ -1,13 +1,18 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/nav.ejs') %>
-
+<div class="d-flex justify-content-center mt-5 mb-5">
 <h1>New User page</h1>
+</div>
 <div class="container">
-        <form action="/users" method="POST">
-            Artist Name: <input type="text" name="artistName" />
-            Given Name (if different): <input type="text" name="realName" />
-            Password: <input type="password" name="password" />
-            <input type="submit" name="" value="Create User"/>
+        <form class="d-flex justify-content-center" action="/users" method="POST">
+            <div class="form-group d-flex flex-column" style="width: 18rem;">
+            <label for="artist-name">Artist Name:</label>
+            <input type="text" class="form-control" name="artistName" />
+            <!-- Given Name (if different): <input type="text" name="realName" /> -->
+            <label class="mt-3" for="password">Password:</label>
+            <input type="password" class="form-control mb-3" name="password" />
+            <input type="submit" class="login-btn btn btn-outline-success" value="Create User"/>
+        </div>
         </form>
     </div>
 <%- include('../partials/footer.ejs') %>
