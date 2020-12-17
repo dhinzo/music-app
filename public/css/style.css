@@ -19,6 +19,12 @@
  } */
 
 
+
+ .cover-photo {
+     object-fit: cover;
+ }
+
+
  h1 {
      font-family: 'Oxygen';
      font-weight: 300;
