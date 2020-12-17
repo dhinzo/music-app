@@ -1,116 +1,76 @@
  #welcome-user {
-    margin-right: 2rem;
-}
+     margin-right: 2rem;
+ }
 
-body {
-    font-family: 'Cantarell';
-    font-weight: 400;
-}
+ body {
+     font-family: 'Cantarell';
+     font-weight: 400;
+ }
 
-nav{
-    background-color: aliceblue;
-}
+ .navbar {
+     background-color: aliceblue;
+     width: 100%;
+     margin: 0;
+ }
 
-@media screen and (max-width: 990px) {
-    #welcome-user {
-        margin-top: 1rem;
-    }
-    .home-btns {
-        margin-bottom: .5rem;
-    }
-}
+ /*
+ .container {
+     border: solid 1px black;
+ } */
 
-/* .full-width {
-    width: 100%;
-} */
 
-h1 {
-    font-family: 'Oxygen';
-    font-weight: 300;
-}
+ h1 {
+     font-family: 'Oxygen';
+     font-weight: 300;
+ }
 
-#title-pg-header {
-    font-size: 6rem;
-}
+ #title-pg-header {
+     font-size: 4rem;
+ }
 
-h2 {
-    font-family: 'Cantarell';
-    font-weight: 400;
-    font-size: 3rem;
-}
+ h2 {
+     font-family: 'Cantarell';
+     font-weight: 400;
+     font-size: 3rem;
+ }
 
-label {
-    font-style: italic;
-    font-size: 1.25rem;
-}
+ @media screen and (max-width: 770px) {
+     h2 {
+         font-size: 2rem;
+     }
+ }
 
-.card {
-    margin-left: 1rem;
-}
+ @media screen and (max-width: 485px) {
+     h2 {
+         font-size: 1.25rem;
+     }
+ }
 
-/* .new-form{
+ label {
+     font-style: italic;
+     font-size: 1.25rem;
+ }
+
+ .card {
+     margin-left: 1rem;
+ }
+
+ /* .new-form{
     margin-top: 5rem;
 } */
 
-.home-subtitle {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    background: aliceblue;
-}
+ .home-subtitle {
+     width: 100%;
+     padding-top: 5rem;
+     padding-bottom: 5rem;
+     background: aliceblue;
+ }
 
-.login-btn {
-    margin: 0 auto;
-}
+ .login-btn {
+     margin: 0 auto;
+ }
 
-.portfolio {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-.jumbotron {
-    padding-bottom: 2rem;
-    padding-left: 20rem;
-    padding-right: 20rem;
-    background: aliceblue;
-}
-
-@media screen and (min-width: 260px) {
-    .jumbotron {
-    padding-left: 40rem;
-    padding-right: 40rem;
-    }
-    nav {
-        width: 100%;
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-
-}
-
-@media screen and (max-width: 2400px) {
-    .jumbotron {
-        padding-left: 4rem;
-        padding-right: 4rem;
-        }
-}
-
-.jumbo-header {
-    padding-bottom: 2rem;
-}
-
-
-
-.card-img-top {
-    object-fit: cover;
-    height: 13rem;
-}
-
-
-
+ .portfolio {
+     padding-top: 0;
+     padding-bottom: 0;
+ }
