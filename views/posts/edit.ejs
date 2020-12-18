@@ -11,10 +11,6 @@
                 <label for="artist-name">Artist Name</label>
                 <input type="text" name="artistName" class="form-control" id="artistName" value="<%= edit.artistName %>" readonly>
         </div>
-        <!-- <div class="form-group">
-            <label for="song-photo">Post Photo</label>
-            <input type="file" name="postPhoto" class="form-control-file" id="postPhoto">
-        </div> -->
         <div class="form-group">
             <label for="website">Website</label>
             <input type="text" name="website" class="form-control" id="website" value="<%= edit.website %>">
@@ -35,12 +31,7 @@
                 <input type="text" class="form-control" name="tags" id="tags" value="<%= edit.tags %>">
             </div>
             </fieldset>
-            <!-- code for upload file button -->
-      <!-- <div class="form-group">
-        <label for="file-upload">Upload File</label>
-        <input type="file" class="form-control-file" id="songFile">
-      </div> -->
-
+            
       <button type="submit" class="btn btn-primary">Submit</button>
       <a type="button" href="/posts/<%= edit.id %>" class="btn btn-primary">Back to Post</a>
         </div>

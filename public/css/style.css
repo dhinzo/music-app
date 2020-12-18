@@ -13,13 +13,6 @@
      margin: 0;
  }
 
- /*
- .container {
-     border: solid 1px black;
- } */
-
-
-
  .cover-photo {
      object-fit: cover;
  }
@@ -61,9 +54,6 @@
      margin-left: 1rem;
  }
 
- /* .new-form{
-    margin-top: 5rem;
-} */
 
  .home-subtitle {
      width: 100%;

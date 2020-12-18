@@ -17,11 +17,8 @@ sessionsController.post('/', async (req, res) => {
     try{
 
       const myUser = await User.findById(user._id)
-      if (bcrypt.compareSync(req.body.password, myUser.password)) {
-        // add the user to our session
+      if (bcrypt.compareSync(req.body.password, myUser.password)) {       
         req.session.currentUser = myUser
-        // redirect back to our home page
-       // console.log(myUser)
         res.redirect('/posts')
       } else {
         console.log('bad pw')
@@ -30,9 +27,7 @@ sessionsController.post('/', async (req, res) => {
     }
     catch (err) {
       res.send('Invalid User')
-    }
-    
-   
+    }     
   }
   catch (err) {
 

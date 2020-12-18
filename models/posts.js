@@ -7,8 +7,6 @@ const postSchema = new mongoose.Schema({
     compDescription: String,
     tags: [String],
     website: String,
-    //songFile: { type: String },
-    //likes: { type: Number, default: 0 }
 }, {timestamp: true})
 
 const Post = mongoose.model('Post', postSchema)

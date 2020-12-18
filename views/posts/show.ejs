@@ -13,15 +13,10 @@
                         <p class="card-text mb-5 text-justify"><%= post.compDescription %></p>
                         <h6>Portfolio</h6>
                         <p><a type="button" class="btn btn-outline-secondary portfolio" target="_blank" href="<%= post.website %>">Here</a></p>
-                    <!-- </div>
-                    <div class="card-body"> -->
+                    
                         <h6 class="pt-4">Tags:</h6>
                         <p><%= post.tags %></p>
                     </div>
-                    <!-- <div class="card-body">
-                        <h6>Likes</h6>
-                        <p><%= post.likes %></p>
-                    </div> -->
                     <% if(currentUser.artistName === post.artistName) { %>
                     <div class="card-body pt-0">
                         <form action="/posts/<%= post.id %>?_method=DELETE" method="POST"><button type="submit" class="btn btn-danger" value="DELETE">Delete Post</button>
